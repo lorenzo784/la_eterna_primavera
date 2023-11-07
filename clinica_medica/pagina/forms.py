@@ -123,6 +123,12 @@ class FormularioMedico(forms.ModelForm):
             )
         }
 
+    def clean_numero_colegiado(self):
+        numero_colegiado = self.cleaned_data.get('numero_colegiado')
+        if Medico.objects.filter(numero_colegiado=numero_colegiado).exists():
+            raise forms.ValidationError("El número de colegiado ya existe. Debe ser único.")
+        return numero_colegiado
+
 class VisitaMedicaForm(forms.ModelForm):
     class Meta:
         model = VisitaMedica

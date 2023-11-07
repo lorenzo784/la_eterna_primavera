@@ -1,22 +1,29 @@
 {% extends 'pagina_principal.html' %}
 
 {% block content %}
-    <div>
-        <h4 style="text-align: center;">Agregar nuevo médico</h4>
-        <div class="btn-container">
-            <a class="btn btn-medic" href="{% url 'pagina:medico-listado' %}">Cancelar</a>
-        </div>
-        <form method="post" class="form">
-            {% csrf_token %}
-            {% for field in form %}
-            <div class="form-item">
-                {{ field.label_tag }}
-                {{ field }}
-            </div>
-            {% endfor %}
-            <div class="btn-container">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
-        </form>
+<div>
+    <h4 style="text-align: center;">Agregar nuevo médico</h4>
+    <div class="btn-container">
+        <a class="btn btn-medic" href="{% url 'pagina:medico-listado' %}">Cancelar</a>
     </div>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-item">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors  %}
+            <div class="alert alert-primary">{{ field.errors }}</div>
+            {% endif %}
+        {% endfor %}
+        {% if form.non_field_errors %}
+            <div class="form-item alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>
 {% endblock content %}

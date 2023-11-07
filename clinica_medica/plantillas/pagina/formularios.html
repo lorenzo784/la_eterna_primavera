@@ -1,0 +1,22 @@
+{% extends 'pagina_principal.html' %}
+{% load static %}
+{% block content %}
+<div class="homepage">
+    <div class="formularios">
+        <div>
+            <h4>Formulario para Pacientes entrantes</h4>
+            <a class="btn btn-info" href="{% url 'pagina:paciente-crear' %}">Paciente</a>
+    
+            <h4>Mostrar datos</h4>
+            <a class="btn btn-info" href="{% url 'pagina:paciente-listado' %}">Lista de pacientes</a>
+        </div>
+        <div>
+            <h4>Formulario para médicos entrantes</h4>
+            <a class="btn btn-info" href="{% url 'pagina:paciente-crear' %}">Médicos</a>
+            
+            <h4>Mostrar datos</h4>
+            <a class="btn btn-info" href="{% url 'pagina:paciente-listado' %}">Lista de médicos</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+<div class="tabla-registro">
+
+    <div class="container-btn regresar">
+        <a class="btn btn-light" href="{% url 'pagina:paciente-crear' %}">Ingresar nuevo paciente</a>
+        <a class="btn btn-light" href="{% url 'pagina:medico-listado' %}">Médicos</a>
+    </div>
+
+    <div>
+        <table class="table table-hover table-dark">
+            <thead class="text-center align-middle">
+                <tr>
+                    <td>Nombre</td>
+                    <td class="hide-data">DPI</td>
+                    <td class="hide-data">Fecha de nacimiento</td>
+                    <td class="hide-data">Dirección</td>
+                    <td>Razon de visita</td>
+                    <td class="hide-data">Receta médica</td>
+                    <td>Número telefónico</td>
+                    <td>Opciones</td>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle" >
+                {% if object_list %}
+                {% for paciente in object_list %}
+                <tr>    
+                    <td>{{paciente.nombre}}</td>
+                    <td class="hide-data">{{paciente.dpi}}</td>
+                    <td class="hide-data">{{paciente.fecha_de_nacimiento}}</td>
+                    <td class="hide-data">{{paciente.direccion}}</td>
+                    <td>{{paciente.razon_de_visita}}</td>
+                    <td class="hide-data">{{paciente.receta_medica}}</td>
+                    <td>{{paciente.numero_telefonico}}</td>
+                    <td class="container-btns">
+                        <a class="btn btn-info" href="{% url 'pagina:paciente-actualizar' paciente.id %}">Editar</a>
+                        <a class="btn btn-warning" href="{% url 'pagina:paciente-borrar' paciente.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="8" class="text-center">No hay registros</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}

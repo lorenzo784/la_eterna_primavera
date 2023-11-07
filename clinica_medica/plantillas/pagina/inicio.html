@@ -1,0 +1,42 @@
+{% extends 'pagina_principal.html' %}
+{% load static %}
+{% block content %}
+<div class="homepage">
+    <section id="inicio">
+        <h2>Bienvenidos a Nuestra Clínica</h2>
+        <p>Clínica La Eterna Primavera es un lugar dedicado a cuidar y mejorar tu salud en todas las estaciones de la vida. Con décadas de experiencia, hemos establecido una reputación de excelencia en atención médica y bienestar. Nuestro compromiso es proporcionar una atención integral, compasiva y personalizada a nuestros pacientes.</p>
+    </section>
+
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <p>En Clínica La Eterna Primavera, ofrecemos una amplia gama de servicios de atención médica de alta calidad. Algunos de nuestros servicios incluyen:</p>
+        <ul>
+            <li>Consultas médicas generales: Nuestros médicos generales están disponibles para abordar tus preocupaciones de salud y brindar orientación preventiva.</li>
+            <li>Atención especializada: Contamos con especialistas en áreas como cardiología, ginecología, pediatría y más para atender las necesidades únicas de cada paciente.</li>
+            <li>Exámenes de laboratorio: Utilizamos tecnología de vanguardia para realizar análisis de sangre, diagnóstico por imágenes y otras pruebas para un diagnóstico preciso.</li>
+            <li>Terapias alternativas: Complementa tu tratamiento médico convencional con terapias naturales como acupuntura, quiropraxia y medicina herbal.</li>
+            <li>Salud mental: Nuestros psicólogos y psiquiatras ofrecen apoyo para abordar preocupaciones emocionales y mentales.</li>
+        </ul>
+    </section>
+
+    <section id="acerca">
+        <h2>Acerca de Nosotros</h2>
+        <p>En Clínica La Eterna Primavera, nuestra historia es una historia de dedicación a la salud y el bienestar. Fundada en 1985, nuestra clínica ha estado sirviendo a la comunidad con un enfoque en la atención centrada en el paciente. Nuestro equipo de médicos, enfermeras y personal de apoyo está comprometido en brindar atención de calidad y promover la prevención de enfermedades.</p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Nuestra clínica se encuentra en [Dirección de la clínica], en el corazón de la ciudad. Si deseas programar una cita, hacer una consulta o tienes preguntas, no dudes en comunicarte con nosotros. Puedes llamarnos al [Número de contacto] o completar el siguiente formulario. Estamos aquí para cuidar de tu salud y bienestar.</p>
+        <form class="informacion">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </form>
+    </section>
+
+</div>
+{% endblock content %}

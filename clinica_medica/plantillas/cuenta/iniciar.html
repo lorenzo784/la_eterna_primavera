@@ -1,0 +1,27 @@
+{% extends "pagina_principal.html" %}
+{% block title %}Iniciar sesion{% endblock %}
+{% block content %}
+
+<form class="cuenta-formulario" action="{% url 'cuenta:iniciar' %}" method="post">
+  {% csrf_token %}
+  <h3 class="mb-4">Iniciar sesion</h3>
+  {% if form.errors %}
+  <div class="alert alert-primary" role="alert">
+    Error: EL correo o contraseña es incorrecto!
+  </div>
+  {% endif %}
+  <label class="form-label">Correo electrónico</label>
+  {{ form.username}}
+  <label class="form-label">Contraseña</label>
+  {{ form.password}}
+  <div class="d-grid gap-2">
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn btn-secondary py-2 mb-4 mt-5 fw-bold" type="submit" value="Log-in">Iniciar sesion
+    </button>
+  </div>
+  <div class="flex-column justify-content-center mx-auto pb-3">
+    <div class="text-center"><a href="{% url "cuenta:registrar" %}">Crear una nueva cuenta</a></div>
+  </div>
+</form>
+
+{% endblock %}

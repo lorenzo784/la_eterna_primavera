@@ -1,0 +1,14 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+    <div class="content borrar">
+        <form method="post">
+            {% csrf_token %}
+            <h3>¿Desea eliminar al paciente {{object.nombre}} de la base de datos?</h3>
+            <div class="content">
+                <button class="btn btn-warning" type="submit">Confirmar</button>
+                <a class="btn btn-default" href="{% url 'pagina:paciente-listado' %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

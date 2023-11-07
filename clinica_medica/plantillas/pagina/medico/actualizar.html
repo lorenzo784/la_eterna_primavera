@@ -1,0 +1,22 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+    <div>
+        <h4 style="text-align: center;">Editar al médico {{ object.nombre }}</h4>
+        <div class="btn-container">
+            <a class="btn btn-medic" href="{% url 'pagina:medico-listado' %}">Cancelar</a>
+        </div>
+        <form method="post" class="form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-item">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+            {% endfor %}
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

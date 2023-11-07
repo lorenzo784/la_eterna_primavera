@@ -177,10 +177,27 @@ body {
 .informacion {
     display: flex;
     flex-direction: column;
-    width: 400px;;
+    gap: 20px;
+    width: 400px;
     margin: 0 auto;
 }
 
+
+.informacion input{
+    border-radius: 20px;
+    outline: none;
+    font-size: 12;
+    border: 1px solid black;
+    padding: 0 12px;
+}
+
+.informacion textarea{
+    border-radius: 20px;
+    outline: none;
+    font-size: 12;
+    border: 1px solid black;
+    padding: 0 12px;
+}
 
 
 
@@ -484,3 +501,4 @@ body {
         background-size: 50vh;
     }
 }
+

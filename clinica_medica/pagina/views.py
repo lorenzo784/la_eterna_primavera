@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Paciente, Medico, VisitaMedica
-from .forms import FormularioPaciente, FormularioMedico, VisitaMedicaForm
+from .forms import FormularioPaciente, FormularioMedico, VisitaMedicaForm, FormularioPacienteEditar, FormularioMedicoEditar
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
@@ -33,7 +33,7 @@ class PacienteCreateView(CreateView):
 @method_decorator(login_required, name='dispatch')
 class PacienteUpdateView(UpdateView):
     model = Paciente
-    form_class = FormularioPaciente
+    form_class = FormularioPacienteEditar
     template_name = 'pagina/paciente/actualizar.html'
     success_url = reverse_lazy('pagina:paciente-listado')
 
@@ -57,7 +57,7 @@ class MedicoCreateView(CreateView):
 @method_decorator(login_required, name='dispatch')
 class MedicoUpdateView(UpdateView):
     model = Medico
-    form_class = FormularioMedico
+    form_class = FormularioMedicoEditar
     template_name = 'pagina/medico/actualizar.html'
     success_url = reverse_lazy('pagina:medico-listado')
 

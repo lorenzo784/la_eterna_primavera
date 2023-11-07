@@ -33,9 +33,11 @@
                     <td>{{paciente.razon_de_visita}}</td>
                     <td class="hide-data">{{paciente.receta_medica}}</td>
                     <td>{{paciente.numero_telefonico}}</td>
-                    <td class="container-btns">
-                        <a class="btn btn-info" href="{% url 'pagina:paciente-actualizar' paciente.id %}">Editar</a>
-                        <a class="btn btn-warning" href="{% url 'pagina:paciente-borrar' paciente.id %}">Eliminar</a>
+                    <td>
+                        <div class="container-btns">
+                            <a class="btn btn-info" href="{% url 'pagina:paciente-actualizar' paciente.id %}">Editar</a>
+                            <a class="btn btn-warning" href="{% url 'pagina:paciente-borrar' paciente.id %}">Eliminar</a>
+                        </div>
                     </td>
                 </tr>
                 {% endfor %}

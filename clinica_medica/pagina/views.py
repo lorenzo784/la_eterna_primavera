@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from .models import Paciente, Medico
-from .forms import FormularioPaciente, FormularioMedico
+from .models import Paciente, Medico, VisitaMedica
+from .forms import FormularioPaciente, FormularioMedico, VisitaMedicaForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
@@ -67,3 +67,24 @@ class MedicoDeleteView(DeleteView):
     template_name = 'pagina/medico/eliminar.html'
     success_url = reverse_lazy('pagina:medico-listado')
 
+@login_required
+def crear_visita_medica(request):
+    if request.method == 'POST':
+        form = VisitaMedicaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pagina:visita-listado')
+    else:
+        form = VisitaMedicaForm()
+    
+    return render(request, 'pagina/visita_medica.html', {'form': form})
+
+def listar_visitas_medicas(request):
+    visitas = VisitaMedica.objects.all()
+    return render(request, 'pagina/visita_listado.html', {'visitas': visitas})
+
+@method_decorator(login_required, name='dispatch')
+class EliminarVisitaMedica(DeleteView):
+    model = VisitaMedica
+    template_name = 'pagina/visita_borrar.html'
+    success_url = reverse_lazy('pagina:visita-listado')

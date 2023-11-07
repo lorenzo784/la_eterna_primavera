@@ -1,5 +1,5 @@
 from django import forms
-from .models import Paciente, Medico
+from .models import Paciente, Medico, VisitaMedica
 
 
 class FormularioPaciente(forms.ModelForm):
@@ -71,6 +71,12 @@ class FormularioPaciente(forms.ModelForm):
             ),
         }
 
+    def clean_dpi(self):
+        dpi = self.cleaned_data.get('dpi')
+        if Paciente.objects.filter(dpi=dpi).exists():
+            raise forms.ValidationError('Ya existe un paciente con este DPI.')
+        return dpi
+
 
 class FormularioMedico(forms.ModelForm):
     class Meta:
@@ -115,4 +121,14 @@ class FormularioMedico(forms.ModelForm):
                     'placeholder': 'Ingrese el diagnostico',
                 }
             )
+        }
+
+class VisitaMedicaForm(forms.ModelForm):
+    class Meta:
+        model = VisitaMedica
+        fields = ['medico', 'paciente', ]
+
+        labels = {
+            'medico': 'Médico',
+            'paciente': 'Paciente',
         }

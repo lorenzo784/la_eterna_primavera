@@ -16,4 +16,7 @@ urlpatterns = [
     path('medico', views.MedicoListView.as_view(), name='medico-listado'),
     path('medico/actualizar/<int:pk>', views.MedicoUpdateView.as_view(), name='medico-actualizar'),
     path('medico/borrar/<int:pk>', views.MedicoDeleteView.as_view(), name='medico-borrar'),
+    path('visita/', views.crear_visita_medica, name='visita'),
+    path('visita/listado/', views.listar_visitas_medicas, name='visita-listado'),
+    path('visita/borrar/<int:pk>', views.EliminarVisitaMedica.as_view(), name='visita-borrar'),
 ]

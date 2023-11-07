@@ -12,8 +12,12 @@
             <div class="form-item">
                 {{ field.label_tag }}
                 {{ field }}
+                {{ field.errors }}  {# Muestra errores específicos del campo #}
             </div>
             {% endfor %}
+            <div class="form-item">
+                {{ form.non_field_errors }}  {# Muestra errores generales del formulario #}
+            </div>
             <div class="btn-container">
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>

@@ -401,7 +401,7 @@ body {
 
 .formularios {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -409,6 +409,11 @@ body {
     gap: 100px;
 }
 
+.formulario-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
 
 .dropdown-toggle {
     cursor: pointer;
@@ -474,7 +479,7 @@ body {
     margin: 0 auto;
 }
 
-.borrar {
+.centrar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -502,3 +507,10 @@ body {
     }
 }
 
+
+
+select {
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}

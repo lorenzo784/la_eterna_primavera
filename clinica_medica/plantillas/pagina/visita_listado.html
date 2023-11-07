@@ -1,0 +1,46 @@
+{% extends 'pagina_principal.html' %}
+
+{% block content %}
+<div class="tabla-registro">
+
+    <div class="container-btn regresar">
+        <a class="btn btn-light" href="{% url 'pagina:visita' %}">Ingresar nueva visita médica</a>
+    </div>
+
+    <div>
+        <table class="table table-hover table-dark">
+            <thead class="text-center align-middle">
+                <tr>
+                    <td>Médico</td>
+                    <td>Paciente</td>
+                    <td>Fecha</td>
+                    <td>Opciones</td>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle" >
+                {% if visitas %}
+                {% for visita in visitas %}
+                <tr>    
+                    <td>{{visita.medico}}</td>
+                    <td>{{visita.paciente}}</td>
+                    <td>{{visita.fecha_visita}}</td>
+                    <td>
+                        <div class="container-btns">
+                            <a class="btn btn-warning" href="{% url 'pagina:visita-borrar' visita.id %}">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="8" class="text-center">No hay registros</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock content %}
+

@@ -28,8 +28,10 @@
                     <td>{{medico.especialidad}}</td>
                     <td>{{medico.diagnostico}}</td>
                     <td>
-                        <a class="btn btn-info" href="{% url 'pagina:medico-actualizar' medico.id %}">Editar</a>
-                        <a class="btn btn-warning" href="{% url 'pagina:medico-borrar' medico.id %}">Eliminar</a>
+                        <div class="container-btns">
+                            <a class="btn btn-info" href="{% url 'pagina:medico-actualizar' medico.id %}">Editar</a>
+                            <a class="btn btn-warning" href="{% url 'pagina:medico-borrar' medico.id %}">Eliminar</a>
+                        </div>
                     </td>
                 </tr>
                 {% endfor %}

@@ -1,7 +1,7 @@
 {% extends 'pagina_principal.html' %}
 
 {% block content %}
-    <div class="content borrar">
+    <div class="content centrar">
         <form method="post">
             {% csrf_token %}
             <h3>¿Desea eliminar al paciente {{object.nombre}} de la base de datos?</h3>

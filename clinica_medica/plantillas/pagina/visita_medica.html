@@ -1,0 +1,12 @@
+{% extends 'pagina_principal.html' %}
+{% load static %}
+{% block content %}
+<div class="homepage centrar">
+    <h2>Formulario de Visita Médica</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input  class="btn btn-primary" type="submit" value="Guardar Visita Médica">
+    </form>
+</div>
+{% endblock content %}

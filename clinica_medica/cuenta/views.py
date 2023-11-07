@@ -26,13 +26,14 @@ def user_register(request):
             user = registerForm.save(commit=False)
             user.email = registerForm.cleaned_data['email']
             user.name = registerForm.cleaned_data['user_name']
+            user.is_active = True
             user.set_password(registerForm.cleaned_data['password'])
             user.save()
             login(request, user)
-            return redirect('clinica:home')
+            return redirect('pagina:inicio')
     else:
         registerForm = RegistrationForm()
-    return render(request, 'usuario/register.html', {'form': registerForm})
+    return render(request, 'cuenta/registrar.html', {'form': registerForm})
 
 def user_login(request):
     if request.user.is_authenticated:
